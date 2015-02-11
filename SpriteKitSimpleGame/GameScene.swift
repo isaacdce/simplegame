@@ -49,15 +49,21 @@ class Player: SKNode{
     var shooting_ = false
     var direction_ = CGVector(dx: 0.0, dy: 0.0)
     var lastShotTime_: CFTimeInterval = 0
+    var selector_ = SKSpriteNode(imageNamed: "selector_1.png")
+    
+    // '?' means this variable is optional; when an instance of this class is created, this variable
+    // will be nil until the user selects a node. Make sure to check if nil whenever used
+    var selected_: SKSpriteNode?
+    
     
     init(size: CGSize){
-        super.init()
-        position = CGPoint(x: 0, y: 0)
         
-        weapons_[0].position = CGPoint(x: 20, y: (size.height / 2))
-        weapons_[1].position = CGPoint(x: 20, y: (size.height - 20))
+        weapons_[0].position = CGPoint(x: 40, y: (size.height / 2))
+        weapons_[1].position = CGPoint(x: 40, y: (size.height - 40))
         weapons_.append(SKSpriteNode(imageNamed: "ship_1.png"))
-        weapons_[2].position = CGPoint(x: 20, y: 20)
+        weapons_[2].position = CGPoint(x: 40, y: 40)
+        
+        
         
         let shipAnim = SKAction.animateWithTextures([
             SKTexture(imageNamed: "ship_1"),
@@ -89,42 +95,113 @@ class Player: SKNode{
             
             ], timePerFrame: 0.04)
         
+        let selectorAnim = SKAction.animateWithTextures([
+            SKTexture(imageNamed: "selector_1"),
+            SKTexture(imageNamed: "selector_2"),
+            SKTexture(imageNamed: "selector_3"),
+            SKTexture(imageNamed: "selector_4"),
+            SKTexture(imageNamed: "selector_5"),
+            SKTexture(imageNamed: "selector_6")
+        ], timePerFrame: 0.11)
+        
+        selector_.runAction(SKAction.repeatActionForever(selectorAnim))
+        selector_.hidden = true
+        super.init()
+        
+        self.userInteractionEnabled = true
+        position = CGPoint(x: 0, y: 0)
+        
+        addChild(selector_)
         for weapon in weapons_{
-            weapon.zPosition = 1
+            weapon.zPosition = 2
             weapon.runAction(SKAction.repeatActionForever(shipAnim))
+            weapon.name = "weapon"
+            
+            println("weapon frame: \(weapon.frame)")
+            //weapon.userInteractionEnabeled = false
             addChild(weapon)
         }
+        
+        
     }
-    
-    func updateDirection(touches: NSSet, withEvent event: UIEvent){
-        for weapon in weapons_{
-            calcDirection(fromNode: weapon, toTouches: touches, withEvent: event)
-        }
-    }
-    //sets direction ship is facing based on most recent touch data
-    func calcDirection(fromNode node: SKSpriteNode, toTouches touches: NSSet, withEvent event: UIEvent){
-        // 1 - Choose one of the touches to work with
+   
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        
+        //let scene = self.parent as SKScene
         let touch = touches.anyObject() as UITouch
-        let touchLocation = touch.locationInNode(self)
+        let location = touch.locationInNode(self)
+        //let node = nodeAtPoint(location)
         
-        let destination = CGVector(dx: touchLocation.x, dy: touchLocation.y)
-        let origin = CGVector(dx: node.position.x, dy: node.position.y)
-        
-        let offset = destination - origin
-        let direction = offset.normalized()
-        var nodeRotation = atan(direction.dy/direction.dx)
-        
-        if(direction.dx < 0){
-            nodeRotation += 135
+        for weapon in weapons_{
+            
+            
+            let origin = CGVector(dx: weapon.position.x, dy: weapon.position.y)
+            let destination = CGVector(dx: location.x, dy: location.y)
+            
+            let distance = (destination - origin).length()
+            
+            if(distance < weapon.size.width / 2){
+                selectNode(weapon as SKSpriteNode)
+                return
+            }
         }
-        node.zRotation = nodeRotation
+        //println("touch location in player: \(location)")
+        
+        /*
+        //println("selector frame \(selector_.frame)")
+        if(node.name == "weapon"){
+            println("node position in player: \(node.position)")
+            println("node frame: \(node.frame)")
+            //println("node frame: \(node.frame)")
+            selectNode(node as SKSpriteNode)
+        }*/
+        
+        
+        shooting_ = true
+        updateDirectionFromSelected(toPoint: location)
+        parent!.touchesBegan(touches, withEvent: event)
     }
     
-    func shootProjectile(fromNode node: SKSpriteNode){
-        
-        if(shooting_ == false){
-            return
+    override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
+        self.touchesBegan(touches, withEvent: event)
+        parent!.touchesBegan(touches, withEvent: event)
+    }
+    
+    func selectNode(node: SKSpriteNode){
+        if(selector_.hidden == true){
+            selector_.hidden = false
+            selector_.position = node.position
         }
+        
+        //if user is selecting a different node, animate selector to node
+        if(selected_ != node){
+            selected_ = node
+            selector_.runAction(SKAction.moveTo(selected_!.position, duration: 0.08))
+            
+            
+        }
+        
+    }
+    
+    
+    func updateDirectionFromSelected(toPoint point: CGPoint){
+        if(selected_ != nil){
+            let destination = CGVector(dx: point.x, dy: point.y)
+            let origin = CGVector(dx: selected_!.position.x, dy: selected_!.position.y)
+            
+            let offset = destination - origin
+            let direction = offset.normalized()
+            var nodeRotation = atan(direction.dy/direction.dx)
+            
+            if(direction.dx < 0){
+                nodeRotation += 135
+            }
+            selected_!.zRotation = nodeRotation
+        }
+    }
+    
+    
+    func shootProjectile(fromNode weapon: SKSpriteNode){
         
         /*
         let projectileAnim = SKAction.animateWithTextures([
@@ -178,25 +255,27 @@ class Player: SKNode{
         */
         //projectile.runAction(projectileAnim)
         
+        let direction = CGVector(dx: cos(weapon.zRotation), dy: sin(weapon.zRotation)).normalized()
         projectile.zPosition = 1
         
         projectile.physicsBody = SKPhysicsBody(circleOfRadius: projectile.size.width / 4)
         projectile.physicsBody?.affectedByGravity = false
         projectile.physicsBody?.dynamic = true
         
-        let projectileVector = CGVector(dx: node.position.x, dy: node.position.y) + direction_ * 10
-        projectile.position.x = projectileVector.dx
-        projectile.position.y = projectileVector.dy
+        
+        let projectile_position = CGVector(dx: weapon.position.x, dy: weapon.position.y) + direction * 10
+        projectile.position.x = projectile_position.dx
+        projectile.position.y = projectile_position.dy
         
         projectile.physicsBody?.categoryBitMask = PhysicsCategory.Bullet.rawValue
         
         projectile.physicsBody?.contactTestBitMask = PhysicsCategory.All.rawValue
         
         projectile.physicsBody?.collisionBitMask = PhysicsCategory.None.rawValue
-        projectile.zRotation = node.zRotation
+        projectile.zRotation = weapon.zRotation
         
         // 5 - OK to add now - you've double checked position
-        addChild(projectile)
+        
         
         let trailPath: NSString = NSBundle.mainBundle().pathForResource("projectile_trail", ofType: "sks")!
         let trailEmitter = NSKeyedUnarchiver.unarchiveObjectWithFile(trailPath) as SKEmitterNode
@@ -210,9 +289,8 @@ class Player: SKNode{
         let actionMoveDone = SKAction.removeFromParent()
         //projectile.runAction(SKAction.sequence([actionMove, actionMoveDone]))
         
-        let direction = CGVector(dx: cos(node.zRotation), dy: sin(node.zRotation))
         projectile.physicsBody?.velocity = direction * 2500
-            
+        addChild(projectile)
         //let circleAction = SKAction.waitForDuration(1)
         //circle.runAction(SKAction.sequence([circleAction, actionMoveDone]))
         
@@ -223,13 +301,18 @@ class Player: SKNode{
     func update(currentTime: NSTimeInterval) {
         let timeDelta = currentTime - lastShotTime_
         
-        if(timeDelta > 0.5 && shooting_){
+        if(timeDelta > 0.5){
             lastShotTime_ = currentTime
             
             for weapon in weapons_{
                 shootProjectile(fromNode: weapon)
             }
         }
+        
+        for weapon in weapons_ {
+        println("weapon frame 2: \(weapon.frame)")
+        }
+        
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -431,17 +514,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        player.shooting_ = true
-        player.updateDirection(touches, withEvent: event)
+        
+        //let scene = self.parent as SKScene
+        let touch = touches.anyObject() as UITouch
+        let location = touch.locationInNode(self)
+        let node = nodeAtPoint(location)
+        println("touch location in scene: \(location)")
+        println("scene frame \(self.frame)")
+        if(node.name == "weapon"){
+            println("node position in scene: \(node.position)")
+            //println("node frame: \(node.frame)")
+            //selectNode(node as SKSpriteNode)
+        }
+        
+        //shooting_ = true
+        //updateDirectionFromSelected(toPoint: location)
     }
-    
     override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
-        player.shooting_ = true
-        player.updateDirection(touches, withEvent: event)
+        let touch = touches.anyObject() as UITouch
+        let location = touch.locationInNode(self)
+        //player.handleTouch(touch)
     }
     
     override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
-        player.shooting_ = false
     }
     
     

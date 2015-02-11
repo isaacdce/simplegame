@@ -30,6 +30,8 @@
 		6A9A10551A1A946500CDC60A /* SpriteKitSimpleGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9A10541A1A946500CDC60A /* SpriteKitSimpleGameTests.swift */; };
 		6A9A10621A1B107200CDC60A /* background-music-aac.caf in Resources */ = {isa = PBXBuildFile; fileRef = 6A9A105F1A1B107200CDC60A /* background-music-aac.caf */; };
 		6A9A10631A1B107200CDC60A /* pew-pew-lei.caf in Resources */ = {isa = PBXBuildFile; fileRef = 6A9A10601A1B107200CDC60A /* pew-pew-lei.caf */; };
+		6AB81F7C1A8A96FF007FE10F /* Selector.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AB81F7B1A8A96FF007FE10F /* Selector.png */; };
+		6AB81F7E1A8A994C007FE10F /* Selector.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 6AB81F7D1A8A994C007FE10F /* Selector.atlas */; };
 		6ADC970D1A8532D4006686EB /* Projectile_3.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 6ADC970C1A8532D4006686EB /* Projectile_3.atlas */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +73,8 @@
 		6A9A10541A1A946500CDC60A /* SpriteKitSimpleGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteKitSimpleGameTests.swift; sourceTree = "<group>"; };
 		6A9A105F1A1B107200CDC60A /* background-music-aac.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "background-music-aac.caf"; sourceTree = "<group>"; };
 		6A9A10601A1B107200CDC60A /* pew-pew-lei.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pew-pew-lei.caf"; sourceTree = "<group>"; };
+		6AB81F7B1A8A96FF007FE10F /* Selector.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Selector.png; sourceTree = "<group>"; };
+		6AB81F7D1A8A994C007FE10F /* Selector.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Selector.atlas; sourceTree = "<group>"; };
 		6ADC970C1A8532D4006686EB /* Projectile_3.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Projectile_3.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,6 +104,7 @@
 				6A0380641A7ACB0D00350A3C /* projectile_trail.sks */,
 				6A0380681A7ADE8600350A3C /* Player.png */,
 				6A0380661A7ACE6D00350A3C /* Particle.png */,
+				6AB81F7B1A8A96FF007FE10F /* Selector.png */,
 				6A0380621A7AC8C100350A3C /* enemy_1.png */,
 				6A1EAB011A72B6FB008B5978 /* Explosion.sks */,
 				6A859C1E1A723C5C002A4530 /* Stars.sks */,
@@ -123,6 +128,7 @@
 		6A9A10371A1A946500CDC60A /* SpriteKitSimpleGame */ = {
 			isa = PBXGroup;
 			children = (
+				6AB81F7D1A8A994C007FE10F /* Selector.atlas */,
 				6ADC970C1A8532D4006686EB /* Projectile_3.atlas */,
 				6A246ECC1A83EFA500048613 /* Ship.atlas */,
 				6A6B31191A829D5900D39207 /* Projectile.atlas */,
@@ -269,8 +275,10 @@
 				6A0380651A7ACB0D00350A3C /* projectile_trail.sks in Resources */,
 				6A859C211A723C5C002A4530 /* spark.png in Resources */,
 				6A0380631A7AC8C100350A3C /* enemy_1.png in Resources */,
+				6AB81F7C1A8A96FF007FE10F /* Selector.png in Resources */,
 				6A9A10441A1A946500CDC60A /* Main.storyboard in Resources */,
 				6A246ECD1A83EFA500048613 /* Ship.atlas in Resources */,
+				6AB81F7E1A8A994C007FE10F /* Selector.atlas in Resources */,
 				6A1EAB021A72B6FB008B5978 /* Explosion.sks in Resources */,
 				6A0380671A7ACE6D00350A3C /* Particle.png in Resources */,
 				6A076D541A85D4D3001088A1 /* projectile_4.png in Resources */,
