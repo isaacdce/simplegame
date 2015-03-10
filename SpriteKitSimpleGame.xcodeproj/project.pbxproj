@@ -12,13 +12,17 @@
 		6A0380671A7ACE6D00350A3C /* Particle.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A0380661A7ACE6D00350A3C /* Particle.png */; };
 		6A0380691A7ADE8600350A3C /* Player.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A0380681A7ADE8600350A3C /* Player.png */; };
 		6A076D541A85D4D3001088A1 /* projectile_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A076D531A85D4D3001088A1 /* projectile_4.png */; };
+		6A1BD7131AA60BE400AF5DFB /* EnemySpawner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1BD7121AA60BE400AF5DFB /* EnemySpawner.swift */; };
 		6A1EAB021A72B6FB008B5978 /* Explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6A1EAB011A72B6FB008B5978 /* Explosion.sks */; };
 		6A246ECD1A83EFA500048613 /* Ship.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 6A246ECC1A83EFA500048613 /* Ship.atlas */; };
-		6A5FD3AA1A72CB5E00BAC26A /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A5FD3A81A72CB5E00BAC26A /* spark.png */; };
+		6A306E311AADF7B300FEFAAB /* Smoke.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6A306E2F1AADF7B300FEFAAB /* Smoke.sks */; };
+		6A5DE3D71A8BC474000D43D7 /* Ring.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 6A5DE3D61A8BC474000D43D7 /* Ring.atlas */; };
 		6A6B31121A8262BA00D39207 /* enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A6B31111A8262BA00D39207 /* enemy.png */; };
 		6A6B31161A828B2D00D39207 /* Mine.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 6A6B31151A828B2D00D39207 /* Mine.atlas */; };
 		6A6B311A1A829D5900D39207 /* Projectile.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 6A6B31191A829D5900D39207 /* Projectile.atlas */; };
 		6A6B311C1A82A2B300D39207 /* Projectile_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A6B311B1A82A2B300D39207 /* Projectile_2.png */; };
+		6A6F3D3E1A8CF090007ED8B6 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6F3D3D1A8CF090007ED8B6 /* Player.swift */; };
+		6A6F3D401A8CF106007ED8B6 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6F3D3F1A8CF106007ED8B6 /* Utilities.swift */; };
 		6A859C201A723C5C002A4530 /* Stars.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6A859C1E1A723C5C002A4530 /* Stars.sks */; };
 		6A859C211A723C5C002A4530 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A859C1F1A723C5C002A4530 /* spark.png */; };
 		6A9A103B1A1A946500CDC60A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9A103A1A1A946500CDC60A /* AppDelegate.swift */; };
@@ -32,7 +36,11 @@
 		6A9A10631A1B107200CDC60A /* pew-pew-lei.caf in Resources */ = {isa = PBXBuildFile; fileRef = 6A9A10601A1B107200CDC60A /* pew-pew-lei.caf */; };
 		6AB81F7C1A8A96FF007FE10F /* Selector.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AB81F7B1A8A96FF007FE10F /* Selector.png */; };
 		6AB81F7E1A8A994C007FE10F /* Selector.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 6AB81F7D1A8A994C007FE10F /* Selector.atlas */; };
+		6ACDD1801AACB13A000F3E6D /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACDD17F1AACB13A000F3E6D /* GameOverScene.swift */; };
 		6ADC970D1A8532D4006686EB /* Projectile_3.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 6ADC970C1A8532D4006686EB /* Projectile_3.atlas */; };
+		6AE85C181AAB4F6000038139 /* Enemy1.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 6AE85C171AAB4F6000038139 /* Enemy1.atlas */; };
+		6AFFBA8C1A9E357000394F46 /* MineExplosion.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 6AFFBA8B1A9E357000394F46 /* MineExplosion.atlas */; };
+		6AFFBA8E1A9EDFF100394F46 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFFBA8D1A9EDFF100394F46 /* Enemy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,13 +59,17 @@
 		6A0380661A7ACE6D00350A3C /* Particle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Particle.png; sourceTree = "<group>"; };
 		6A0380681A7ADE8600350A3C /* Player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Player.png; sourceTree = "<group>"; };
 		6A076D531A85D4D3001088A1 /* projectile_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = projectile_4.png; sourceTree = "<group>"; };
+		6A1BD7121AA60BE400AF5DFB /* EnemySpawner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemySpawner.swift; sourceTree = "<group>"; };
 		6A1EAB011A72B6FB008B5978 /* Explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Explosion.sks; sourceTree = "<group>"; };
 		6A246ECC1A83EFA500048613 /* Ship.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Ship.atlas; sourceTree = "<group>"; };
-		6A5FD3A81A72CB5E00BAC26A /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		6A306E2F1AADF7B300FEFAAB /* Smoke.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Smoke.sks; path = SpriteKitSimpleGame/Smoke.sks; sourceTree = "<group>"; };
+		6A5DE3D61A8BC474000D43D7 /* Ring.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Ring.atlas; sourceTree = "<group>"; };
 		6A6B31111A8262BA00D39207 /* enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy.png; sourceTree = "<group>"; };
 		6A6B31151A828B2D00D39207 /* Mine.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Mine.atlas; sourceTree = "<group>"; };
 		6A6B31191A829D5900D39207 /* Projectile.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Projectile.atlas; sourceTree = "<group>"; };
 		6A6B311B1A82A2B300D39207 /* Projectile_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Projectile_2.png; sourceTree = "<group>"; };
+		6A6F3D3D1A8CF090007ED8B6 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		6A6F3D3F1A8CF106007ED8B6 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		6A859C1E1A723C5C002A4530 /* Stars.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Stars.sks; sourceTree = "<group>"; };
 		6A859C1F1A723C5C002A4530 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		6A9A10351A1A946500CDC60A /* SpriteKitSimpleGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpriteKitSimpleGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,7 +87,11 @@
 		6A9A10601A1B107200CDC60A /* pew-pew-lei.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pew-pew-lei.caf"; sourceTree = "<group>"; };
 		6AB81F7B1A8A96FF007FE10F /* Selector.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Selector.png; sourceTree = "<group>"; };
 		6AB81F7D1A8A994C007FE10F /* Selector.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Selector.atlas; sourceTree = "<group>"; };
+		6ACDD17F1AACB13A000F3E6D /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		6ADC970C1A8532D4006686EB /* Projectile_3.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Projectile_3.atlas; sourceTree = "<group>"; };
+		6AE85C171AAB4F6000038139 /* Enemy1.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Enemy1.atlas; sourceTree = "<group>"; };
+		6AFFBA8B1A9E357000394F46 /* MineExplosion.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = MineExplosion.atlas; sourceTree = "<group>"; };
+		6AFFBA8D1A9EDFF100394F46 /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +115,7 @@
 		6A9A102C1A1A946500CDC60A = {
 			isa = PBXGroup;
 			children = (
+				6A306E2F1AADF7B300FEFAAB /* Smoke.sks */,
 				6A076D531A85D4D3001088A1 /* projectile_4.png */,
 				6A6B311B1A82A2B300D39207 /* Projectile_2.png */,
 				6A0380641A7ACB0D00350A3C /* projectile_trail.sks */,
@@ -128,6 +145,9 @@
 		6A9A10371A1A946500CDC60A /* SpriteKitSimpleGame */ = {
 			isa = PBXGroup;
 			children = (
+				6AE85C171AAB4F6000038139 /* Enemy1.atlas */,
+				6AFFBA8B1A9E357000394F46 /* MineExplosion.atlas */,
+				6A5DE3D61A8BC474000D43D7 /* Ring.atlas */,
 				6AB81F7D1A8A994C007FE10F /* Selector.atlas */,
 				6ADC970C1A8532D4006686EB /* Projectile_3.atlas */,
 				6A246ECC1A83EFA500048613 /* Ship.atlas */,
@@ -135,8 +155,12 @@
 				6A6B31151A828B2D00D39207 /* Mine.atlas */,
 				6A9A105E1A1B107200CDC60A /* Sounds */,
 				6A9A103A1A1A946500CDC60A /* AppDelegate.swift */,
+				6A1BD7121AA60BE400AF5DFB /* EnemySpawner.swift */,
+				6ACDD17F1AACB13A000F3E6D /* GameOverScene.swift */,
 				6A9A103E1A1A946500CDC60A /* GameScene.swift */,
-				6A5FD3A81A72CB5E00BAC26A /* spark.png */,
+				6AFFBA8D1A9EDFF100394F46 /* Enemy.swift */,
+				6A6F3D3F1A8CF106007ED8B6 /* Utilities.swift */,
+				6A6F3D3D1A8CF090007ED8B6 /* Player.swift */,
 				6A9A10401A1A946500CDC60A /* GameViewController.swift */,
 				6A9A10421A1A946500CDC60A /* Main.storyboard */,
 				6A9A10451A1A946500CDC60A /* Images.xcassets */,
@@ -229,6 +253,7 @@
 				TargetAttributes = {
 					6A9A10341A1A946500CDC60A = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = Y97LV6EDVH;
 					};
 					6A9A104D1A1A946500CDC60A = {
 						CreatedOnToolsVersion = 6.1;
@@ -260,13 +285,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A5FD3AA1A72CB5E00BAC26A /* spark.png in Resources */,
 				6A9A10621A1B107200CDC60A /* background-music-aac.caf in Resources */,
 				6A6B31121A8262BA00D39207 /* enemy.png in Resources */,
 				6ADC970D1A8532D4006686EB /* Projectile_3.atlas in Resources */,
 				6A9A10491A1A946500CDC60A /* LaunchScreen.xib in Resources */,
 				6A6B311A1A829D5900D39207 /* Projectile.atlas in Resources */,
 				6A0380691A7ADE8600350A3C /* Player.png in Resources */,
+				6AE85C181AAB4F6000038139 /* Enemy1.atlas in Resources */,
 				6A9A10461A1A946500CDC60A /* Images.xcassets in Resources */,
 				6A6B31161A828B2D00D39207 /* Mine.atlas in Resources */,
 				6A6B311C1A82A2B300D39207 /* Projectile_2.png in Resources */,
@@ -278,10 +303,13 @@
 				6AB81F7C1A8A96FF007FE10F /* Selector.png in Resources */,
 				6A9A10441A1A946500CDC60A /* Main.storyboard in Resources */,
 				6A246ECD1A83EFA500048613 /* Ship.atlas in Resources */,
+				6A306E311AADF7B300FEFAAB /* Smoke.sks in Resources */,
+				6A5DE3D71A8BC474000D43D7 /* Ring.atlas in Resources */,
 				6AB81F7E1A8A994C007FE10F /* Selector.atlas in Resources */,
 				6A1EAB021A72B6FB008B5978 /* Explosion.sks in Resources */,
 				6A0380671A7ACE6D00350A3C /* Particle.png in Resources */,
 				6A076D541A85D4D3001088A1 /* projectile_4.png in Resources */,
+				6AFFBA8C1A9E357000394F46 /* MineExplosion.atlas in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,8 +327,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A6F3D3E1A8CF090007ED8B6 /* Player.swift in Sources */,
 				6A9A103F1A1A946500CDC60A /* GameScene.swift in Sources */,
+				6ACDD1801AACB13A000F3E6D /* GameOverScene.swift in Sources */,
+				6AFFBA8E1A9EDFF100394F46 /* Enemy.swift in Sources */,
 				6A9A10411A1A946500CDC60A /* GameViewController.swift in Sources */,
+				6A6F3D401A8CF106007ED8B6 /* Utilities.swift in Sources */,
+				6A1BD7131AA60BE400AF5DFB /* EnemySpawner.swift in Sources */,
 				6A9A103B1A1A946500CDC60A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,9 +457,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SpriteKitSimpleGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -434,9 +470,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SpriteKitSimpleGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
